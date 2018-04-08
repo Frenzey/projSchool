@@ -1,11 +1,20 @@
 .box{
     
     -fx-background-color: #225066;
-    /*-fx-effect:dropshadow(gaussian, rgb(0.0, 0.0, 0.0, O.15), 6.0, 0.7, 0.0, 1.5);*/
+    
     
 }
 
 .bouton:hover{
     -fx-background-color: #5a7589;
     -fx-cursor:hand;
+}
+
+.previous:hover{
+    -fx-cursor:hand;
+}
+
+
+.card{
+   
 }

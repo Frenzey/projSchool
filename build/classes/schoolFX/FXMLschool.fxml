@@ -2,12 +2,16 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,6 +19,8 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="Body" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="schoolFX.FXMLschoolController">
@@ -52,36 +58,17 @@
                <children>
                   <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
                      <children>
-                        <JFXButton fx:id="boutonEtud" onMouseClicked="#goTostud" prefHeight="145.0" prefWidth="340.0" text="Gérer Etudiants" textFill="WHITE" styleClass="bouton">
+                        <JFXButton fx:id="boutonEtud" onMouseClicked="#goTostud" prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Etudiants" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Enseignants" textFill="WHITE" styleClass="bouton">
+                        <JFXButton fx:id="boutonEnseig" onAction="#goToEnseign" prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Enseignants" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Groupes" textFill="WHITE" styleClass="bouton">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
-                     <children>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Inscriptions" textFill="WHITE" styleClass="bouton">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Salles" textFill="WHITE" styleClass="bouton">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Matieres" textFill="WHITE" styleClass="bouton">
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Groupes" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
@@ -90,17 +77,36 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
                      <children>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Paiements" textFill="WHITE" styleClass="bouton">
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Inscriptions" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Agents" textFill="WHITE" styleClass="bouton">
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Salles" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Horaires" textFill="WHITE" >
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Matieres" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
+                     <children>
+                        <JFXButton fx:id="boutonPaie" onAction="#goToPaie" prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Paiements" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Agents" textFill="WHITE">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Horaires" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
@@ -116,155 +122,450 @@
       </AnchorPane>
       <AnchorPane fx:id="manStud" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #20759c;">
          <children>
-            <VBox layoutX="124.0" layoutY="99.0" prefHeight="768.0" prefWidth="303.0" style="-fx-background-color: #225066;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="124.0" layoutY="99.0" prefHeight="768.0" prefWidth="219.0" style="-fx-background-color: #225066;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Pane fx:id="gererA" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererA" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="57.0" layoutY="28.0" text="Gérer Etudiants">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererB" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererB" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="57.0" layoutY="28.0" text="Gérer Inscriptions">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererC" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererC" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Paiements">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererD" prefHeight="200.0" prefWidth="200.0" styleClass="bouton">
+                  <Pane fx:id="gererD" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Enseignants">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererE" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererE" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Salles">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererF" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererF" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Agents">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererG" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererG" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Groupes">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererH" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererH" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Matieres">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererI" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
+                  <Pane fx:id="gererI" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Horaires">
                            <font>
-                              <Font name="Kollektif Bold" size="24.0" />
+                              <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children>
                   </Pane>
                </children></VBox>
-            <Pane layoutX="346.0" prefHeight="768.0" prefWidth="720.0" style="-fx-background-color: #cee3ed;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="RightPaneContainer" layoutX="218.0" prefHeight="768.0" prefWidth="805.0">
                <children>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="73.0" promptText="Entrer ID" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="194.0" promptText="Entrer NOM" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="270.0" promptText="Entrer PRENOM" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="13.0" layoutY="497.0" promptText="Entrer TELEPHONE" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXTextField focusColor="#0f0f0f" labelFloat="true" layoutX="14.0" layoutY="344.0" promptText="Entrer EMAIL" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="574.0" style="-fx-background-color: #20759c;" text="VALIDER">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                  </JFXButton>
-                  <Label layoutX="32.0" layoutY="144.0" text="Genre:">
-                     <font>
-                        <Font name="Kollektif" size="24.0" />
-                     </font>
-                  </Label>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="421.0" promptText="Entrer ADRESSE" unFocusColor="#5a7589">
-                     <font>
-                        <Font name="Kollektif" size="23.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </JFXTextField>
-                  <JFXCheckBox layoutX="112.0" layoutY="150.0" text="M" />
-                  <JFXCheckBox layoutX="183.0" layoutY="150.0" text="F" />
-                  <TableView layoutX="299.0" layoutY="73.0" prefHeight="466.0" prefWidth="416.0">
-                    <columns>
-                      <TableColumn editable="false" prefWidth="26.0" sortable="false" text="ID" />
-                      <TableColumn prefWidth="57.0" text="Genre" />
-                        <TableColumn prefWidth="48.0" text="Nom" />
-                        <TableColumn minWidth="0.0" prefWidth="67.0" text="Prenom" />
-                        <TableColumn prefWidth="50.0" text="Email" />
-                        <TableColumn prefWidth="72.0" text="Adresse" />
-                        <TableColumn prefWidth="94.0" text="Telephone" />
-                    </columns>
-                  </TableView>
-                  <JFXButton fx:id="prevBut" buttonType="RAISED" layoutY="719.0" onAction="#goToAdminacc" prefHeight="49.0" prefWidth="43.0" text="">
-                     <graphic>
-                        <ImageView fitHeight="60.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../IMG/left-arrow.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </JFXButton>
+                  <Pane fx:id="GereEtudC" prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #cee3ed;">
+                     <children>
+                        <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="73.0" promptText="Entrer ID" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="194.0" promptText="Entrer NOM" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="270.0" promptText="Entrer PRENOM" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="13.0" layoutY="497.0" promptText="Entrer TELEPHONE" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXTextField focusColor="#0f0f0f" labelFloat="true" layoutX="14.0" layoutY="344.0" promptText="Entrer EMAIL" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="574.0" style="-fx-background-color: #20759c;" text="VALIDER">
+                           <font>
+                              <Font size="33.0" />
+                           </font>
+                        </JFXButton>
+                        <Label layoutX="32.0" layoutY="144.0" text="Genre:">
+                           <font>
+                              <Font name="Kollektif" size="24.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="421.0" promptText="Entrer ADRESSE" unFocusColor="#5a7589">
+                           <font>
+                              <Font name="Kollektif" size="23.0" />
+                           </font>
+                           <effect>
+                              <Glow />
+                           </effect>
+                        </JFXTextField>
+                        <JFXCheckBox layoutX="112.0" layoutY="150.0" text="M" />
+                        <JFXCheckBox layoutX="183.0" layoutY="150.0" text="F" />
+                        <TableView layoutX="299.0" layoutY="73.0" prefHeight="466.0" prefWidth="416.0">
+                          <columns>
+                            <TableColumn editable="false" prefWidth="26.0" sortable="false" text="ID" />
+                            <TableColumn prefWidth="57.0" text="Genre" />
+                              <TableColumn prefWidth="48.0" text="Nom" />
+                              <TableColumn minWidth="0.0" prefWidth="67.0" text="Prenom" />
+                              <TableColumn prefWidth="50.0" text="Email" />
+                              <TableColumn prefWidth="72.0" text="Adresse" />
+                              <TableColumn prefWidth="94.0" text="Telephone" />
+                          </columns>
+                        </TableView>
+                        <JFXButton fx:id="prevBut" buttonType="RAISED" layoutY="719.0" onAction="#goToAdminacc" prefHeight="49.0" prefWidth="43.0" styleClass="previous" text="">
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="GererPaie" prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #20759c;">
+                     <children>
+                        <VBox layoutX="62.0" layoutY="46.0" prefHeight="638.0" prefWidth="688.0" spacing="30.0" style="-fx-background-color: #1e698c;" styleClass="card">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="690.0" text="Paiement">
+                                 <padding>
+                                    <Insets bottom="5.0" left="270.0" right="10.0" top="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="Kollektif Bold" size="31.0" />
+                                 </font>
+                              </Label>
+                              <TableView prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn prefWidth="66.0" text="ID" />
+                                  <TableColumn prefWidth="71.0" text="NOM" />
+                                    <TableColumn prefWidth="94.0" text="PRENOM" />
+                                    <TableColumn prefWidth="133.0" text="ADRESSE" />
+                                    <TableColumn prefWidth="98.0" text="EMAIL" />
+                                    <TableColumn prefWidth="119.0" text="TELEPHONE" />
+                                    <TableColumn prefWidth="105.0" text="MONTANT" />
+                                </columns>
+                              </TableView>
+                              <JFXTextField editable="false" focusColor="WHITE" labelFloat="true" promptText="NOM" unFocusColor="#3dd3ee">
+                                 <font>
+                                    <Font name="Kollektif" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField editable="false" focusColor="WHITE" labelFloat="true" promptText="PRENOM" unFocusColor="#3dd3ee">
+                                 <font>
+                                    <Font name="Kollektif" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField editable="false" focusColor="WHITE" labelFloat="true" promptText="MONTANT" unFocusColor="#3dd3ee">
+                                 <font>
+                                    <Font name="Kollektif" size="24.0" />
+                                 </font>
+                              </JFXTextField>
+                              <VBox prefHeight="200.0" prefWidth="688.0" spacing="25.0">
+                                 <children>
+                                    <Label text="Methode de paiement">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                                       <children>
+                                          <JFXRadioButton text="Paypal">
+                                              
+                                             <font>
+                                                <Font name="Kollektif Bold" size="20.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                  <ToggleGroup fx:id="money" />
+                                             </toggleGroup>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton text="CB" toggleGroup="$money">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="20.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton text="Espèce" toggleGroup="$money">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="21.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton text="Chèque" toggleGroup="$money">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="21.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                          <JFXRadioButton text="Autre" toggleGroup="$money">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="21.0" />
+                                             </font>
+                                          </JFXRadioButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="15.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <JFXButton buttonType="RAISED" prefHeight="43.0" prefWidth="360.0" style="-fx-background-color: #22b529; -fx-text-fill: #ffffff;" text="Enregistrer Paiement">
+                                       <font>
+                                          <Font name="Kollektif Bold" size="23.0" />
+                                       </font>
+                                    </JFXButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="160.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <JFXButton fx:id="prevButpaie" buttonType="RAISED" layoutX="18.0" layoutY="708.0" onAction="#goToAdminaccpai" prefHeight="49.0" prefWidth="49.0" styleClass="previous" text="">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic></JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="GererEnseig" prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #278dbc;">
+                     <children>
+                        <HBox layoutX="1.0" prefHeight="768.0" prefWidth="805.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="402.5" spacing="30.0">
+                                 <children>
+                                    <Label text="Enseignants">
+                                       <font>
+                                          <Font name="Kollektif" size="31.0" />
+                                       </font>
+                                    </Label>
+                                    <JFXTextField editable="false" focusColor="WHITE" labelFloat="true" promptText="ID" style="-fx-text-fill: #000000;" unFocusColor="#d3f8f2">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField focusColor="WHITE" labelFloat="true" promptText="NOM">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                       <unFocusColor>
+                                          <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                                             <stops>
+                                                <Stop color="#d4f8f3" />
+                                                <Stop color="WHITE" offset="1.0" />
+                                             </stops>
+                                          </RadialGradient>
+                                       </unFocusColor>
+                                    </JFXTextField>
+                                    <JFXTextField focusColor="WHITE" labelFloat="true" promptText="PRENOM" unFocusColor="#d3f8f2">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField focusColor="WHITE" labelFloat="true" promptText="ADRESSE" unFocusColor="#d3f8f2">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField focusColor="WHITE" labelFloat="true" promptText="TELEPHONE" unFocusColor="#d3f8f2">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextField focusColor="WHITE" labelFloat="true" promptText="EMAIL" unFocusColor="#d3f8f2">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextField>
+                                    <JFXTextArea focusColor="WHITE" labelFloat="true" maxWidth="383.0" minWidth="383.0" prefHeight="130.0" prefWidth="383.0" promptText="INFORMATIONS COMPLÉMENTAIRES" style="-fx-control-inner-background: #278dbc; -fx-text-fill: #000000;" unFocusColor="#a8a8a8">
+                                       <font>
+                                          <Font name="Kollektif" size="19.0" />
+                                       </font>
+                                    </JFXTextArea>
+                                 </children>
+                                 <padding>
+                                    <Insets left="20.0" top="50.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox prefHeight="768.0" prefWidth="402.5" spacing="20.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <TableView prefHeight="200.0" prefWidth="200.0">
+                                            <columns>
+                                              <TableColumn prefWidth="44.0" text="ID" />
+                                              <TableColumn prefWidth="60.0" text="NOM" />
+                                                <TableColumn prefWidth="83.0" text="PRENOM" />
+                                                <TableColumn prefWidth="70.0" text="SPE" />
+                                                <TableColumn prefWidth="70.0" text="UE" />
+                                                <TableColumn prefWidth="73.0" text="DISP" />
+                                            </columns>
+                                          </TableView>
+                                       </children>
+                                       <padding>
+                                          <Insets top="55.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="121.0" prefWidth="403.0" spacing="15.0">
+                                       <children>
+                                          <Label text="SPÉCIALITÉ" textFill="#e4ee97">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXComboBox prefHeight="44.0" prefWidth="254.0">
+                                             <VBox.margin>
+                                                <Insets left="50.0" />
+                                             </VBox.margin>
+                                          </JFXComboBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="25.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="127.0" prefWidth="403.0" spacing="15.0">
+                                       <children>
+                                          <Label text="ENSEIGNEMENT" textFill="#e4ee97">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXComboBox prefHeight="44.0" prefWidth="254.0">
+                                             <VBox.margin>
+                                                <Insets left="50.0" />
+                                             </VBox.margin>
+                                          </JFXComboBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="25.0" />
+                                       </padding>
+                                    </VBox>
+                                    <VBox prefHeight="76.0" prefWidth="403.0" spacing="15.0">
+                                       <children>
+                                          <Label text="EST DISPONIBLE ?" textFill="#e4ee97">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="17.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="25.0">
+                                             <children>
+                                                <JFXRadioButton text="OUI">
+                                                   <font>
+                                                      <Font name="Kollektif" size="20.0" />
+                                                   </font>
+                                                   <toggleGroup>
+                                                  <ToggleGroup fx:id="choice" />
+                                             </toggleGroup>
+                                                </JFXRadioButton>
+                                                <JFXRadioButton text="NON" toggleGroup="$choice">
+                                                   <font>
+                                                      <Font name="Kollektif" size="20.0" />
+                                                   </font>
+                                                </JFXRadioButton>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets left="30.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                       </children>
+                                       <padding>
+                                          <Insets left="25.0" />
+                                       </padding>
+                                    </VBox>
+                                    <HBox prefHeight="48.0" prefWidth="403.0" spacing="20.0">
+                                       <children>
+                                          <JFXButton buttonType="RAISED" style="-fx-background-color: #db235d;" text="ANNULER">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="20.0" />
+                                             </font></JFXButton>
+                                          <JFXButton buttonType="RAISED" style="-fx-background-color: #23dbdb;" text="EDITER">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="20.0" />
+                                             </font></JFXButton>
+                                          <JFXButton buttonType="RAISED" style="-fx-background-color: #e8e8e8;" text="AJOUTER">
+                                             <font>
+                                                <Font name="Kollektif Bold" size="20.0" />
+                                             </font></JFXButton>
+                                       </children>
+                                       <padding>
+                                          <Insets left="15.0" top="50.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets right="2.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <JFXButton fx:id="prevButEnseign" buttonType="RAISED" layoutX="15.0" layoutY="710.0" onAction="#goToAdminaccEns" prefHeight="49.0" prefWidth="49.0" styleClass="previous" text="">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </Pane>
                </children>
             </Pane>
          </children>

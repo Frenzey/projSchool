@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -69,6 +70,24 @@ public class FXMLschoolController implements Initializable {
     private JFXButton prevBut;
     @FXML
     private HBox hboxMenu;
+    @FXML
+    private Pane RightPaneContainer;
+    @FXML
+    private Pane GereEtudC;
+    @FXML
+    private Pane GererPaie;
+    @FXML
+    private ToggleGroup money;
+    @FXML
+    private JFXButton prevButpaie;
+    @FXML
+    private JFXButton boutonPaie;
+    @FXML
+    private JFXButton boutonEnseig;
+    @FXML
+    private Pane GererEnseig;
+    @FXML
+    private JFXButton prevButEnseign;
 
     /**
      * Initializes the controller class.
@@ -80,6 +99,9 @@ public class FXMLschoolController implements Initializable {
         LogContainer.toFront();
         //this is a comment
         //on test à chaque fois
+        GererPaie.toBack();
+        GererEnseig.toBack();
+        GereEtudC.toBack();
     }    
 
     @FXML
@@ -93,7 +115,7 @@ public class FXMLschoolController implements Initializable {
     @FXML
     private void goTostud(MouseEvent event) {
             manStud.toFront();
-            gererA.setStyle("-fx-background-color: #5a7589");
+            GereEtudC.toFront();
             AdminAccess.toBack();
     }
 
@@ -101,6 +123,34 @@ public class FXMLschoolController implements Initializable {
     private void goToAdminacc(ActionEvent event) {
     manStud.toBack();
     AdminAccess.toFront();
+    }
+
+    @FXML
+    private void goToAdminaccpai(ActionEvent event) {
+    manStud.toBack();
+    AdminAccess.toFront();
+    }
+
+    @FXML
+    private void goToPaie(ActionEvent event) {
+            manStud.toFront();
+            GererPaie.toFront();
+            AdminAccess.toBack();
+    }
+
+    @FXML
+    private void goToEnseign(ActionEvent event) {
+            manStud.toFront();
+            GererEnseig.toFront();
+            AdminAccess.toBack();
+    
+    }
+
+
+    @FXML
+    private void goToAdminaccEns(ActionEvent event) {
+            manStud.toBack();
+            AdminAccess.toFront();
     }
     
 }
