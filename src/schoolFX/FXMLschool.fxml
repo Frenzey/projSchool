@@ -46,67 +46,135 @@
                </children>
             </AnchorPane>
          </children></AnchorPane>
+      <AnchorPane fx:id="AdminAccess" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #20759c;">
+         <children>
+            <HBox fx:id="hboxMenu" alignment="CENTER" layoutX="35.0" layoutY="167.0" prefHeight="434.0" prefWidth="955.0" styleClass="box">
+               <children>
+                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
+                     <children>
+                        <JFXButton fx:id="boutonEtud" onMouseClicked="#goTostud" prefHeight="145.0" prefWidth="340.0" text="Gérer Etudiants" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Enseignants" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Groupes" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
+                     <children>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Inscriptions" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Salles" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Matieres" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
+                     <children>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Paiements" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Agents" textFill="WHITE" styleClass="bouton">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Horaires" textFill="WHITE" >
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="manStud" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #20759c;">
          <children>
             <VBox layoutX="124.0" layoutY="99.0" prefHeight="768.0" prefWidth="303.0" style="-fx-background-color: #225066;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Pane fx:id="gererA" onMouseEntered="#shiftOn" onMouseExited="#shiftOff" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererA" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="57.0" layoutY="28.0" text="Gérer Etudiants">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererB" onMouseEntered="#shiftOn1" onMouseExited="#shiftOff1" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererB" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="57.0" layoutY="28.0" text="Gérer Inscriptions">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererC" onMouseEntered="#shiftOn2" onMouseExited="#shiftOff2" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererC" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Paiements">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererD" onMouseEntered="#shiftOn3" onMouseExited="#shiftOff3" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererD" prefHeight="200.0" prefWidth="200.0" styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Enseignants">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererE" onMouseEntered="#shiftOn4" onMouseExited="#shiftOff4" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererE" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Salles">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererF" onMouseEntered="#shiftOn5" onMouseExited="#shiftOff5" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererF" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Agents">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererG" onMouseEntered="#shiftOn6" onMouseExited="#shiftOff6" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererG" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Groupes">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererH" onMouseEntered="#shiftOn7" onMouseExited="#shiftOff7" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererH" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Matieres">
                            <font>
                               <Font name="Kollektif Bold" size="24.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererI" onMouseEntered="#shiftOn8" onMouseExited="#shiftOff8" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="gererI" prefHeight="200.0" prefWidth="200.0"  styleClass="bouton">
                      <children>
                         <Label layoutX="56.0" layoutY="28.0" text="Gérer Horaires">
                            <font>
@@ -117,7 +185,7 @@
                </children></VBox>
             <Pane layoutX="346.0" prefHeight="768.0" prefWidth="720.0" style="-fx-background-color: #cee3ed;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="73.0" promptText="Entrer ID" stylesheets="@style.css" unFocusColor="#5a7589">
+                  <JFXTextField focusColor="BLACK" labelFloat="true" layoutX="14.0" layoutY="73.0" promptText="Entrer ID" unFocusColor="#5a7589">
                      <font>
                         <Font name="Kollektif" size="23.0" />
                      </font>
@@ -188,7 +256,7 @@
                         <TableColumn prefWidth="94.0" text="Telephone" />
                     </columns>
                   </TableView>
-                  <JFXButton fx:id="prevBut" buttonType="RAISED" layoutY="719.0" prefHeight="49.0" prefWidth="43.0" text="">
+                  <JFXButton fx:id="prevBut" buttonType="RAISED" layoutY="719.0" onAction="#goToAdminacc" prefHeight="49.0" prefWidth="43.0" text="">
                      <graphic>
                         <ImageView fitHeight="60.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -199,74 +267,6 @@
                   </JFXButton>
                </children>
             </Pane>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="AdminAccess" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #20759c;">
-         <children>
-            <HBox alignment="CENTER" layoutX="35.0" layoutY="167.0" prefHeight="434.0" prefWidth="955.0">
-               <children>
-                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
-                     <children>
-                        <JFXButton fx:id="boutonEtud" onMouseClicked="#goTostud" prefHeight="145.0" prefWidth="340.0" text="Gérer Etudiants" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Enseignants" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Groupes" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
-                     <children>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Inscriptions" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Salles" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Matieres" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-                  <VBox maxHeight="-Infinity" prefHeight="452.0" prefWidth="340.0">
-                     <children>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Paiements" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Agents" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" text="Gérer Horaires" textFill="WHITE">
-                           <font>
-                              <Font size="23.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </VBox>
-               </children>
-            </HBox>
          </children>
       </AnchorPane>
    </children>

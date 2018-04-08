@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javax.swing.JOptionPane;
 
@@ -66,6 +67,8 @@ public class FXMLschoolController implements Initializable {
     private JFXButton boutonEtud;
     @FXML
     private JFXButton prevBut;
+    @FXML
+    private HBox hboxMenu;
 
     /**
      * Initializes the controller class.
@@ -85,117 +88,19 @@ public class FXMLschoolController implements Initializable {
     AdminAccess.toFront();
     }
     
-    //boutonEtud
-    @FXML
-    public void shiftOn(){
-         gererA.setStyle("-fx-background-color: #5a7589");
-         gererA.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff(){
-         gererA.setStyle("-fx-background-color: #225066");
-    }
-    
-    //boutonInscr
-    @FXML
-    public void shiftOn1(){
-         gererB.setStyle("-fx-background-color: #5a7589");
-         gererB.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff1(){
-         gererB.setStyle("-fx-background-color: #225066");
-    }
-    
-    //boutonPaie
-    @FXML
-    public void shiftOn2(){
-         gererC.setStyle("-fx-background-color: #5a7589");
-         gererC.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff2(){
-         gererC.setStyle("-fx-background-color: #225066");
-    }
-    
-    //BoutonEnseig
-    @FXML
-    public void shiftOn3(){
-         gererD.setStyle("-fx-background-color: #5a7589");
-         gererD.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff3(){
-         gererD.setStyle("-fx-background-color: #225066");
-    }
-    
-    //BoutonSall
-    @FXML
-    public void shiftOn4(){
-         gererE.setStyle("-fx-background-color: #5a7589");
-         gererE.setCursor(Cursor.HAND);
-    }
-    @FXML
-    public void shiftOff4(){
-         gererE.setStyle("-fx-background-color: #225066");
-    }
-    
-    //boutonAg
-    @FXML
-    public void shiftOn5(){
-         gererF.setStyle("-fx-background-color: #5a7589");
-         gererF.setCursor(Cursor.HAND);
-    } 
-    @FXML
-    public void shiftOff5(){
-         gererF.setStyle("-fx-background-color: #225066");
-    }
-    
-    //BoutonGroup
-    @FXML
-    public void shiftOn6(){
-         gererG.setStyle("-fx-background-color: #5a7589");
-         gererG.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff6(){
-         gererG.setStyle("-fx-background-color: #225066");
-    }
-    
-    //BoutonMatier
-    @FXML
-    public void shiftOn7(){
-         gererH.setStyle("-fx-background-color: #5a7589");
-         gererH.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff7(){
-         gererH.setStyle("-fx-background-color: #225066");
-    }
-   
-    //BoutonMatier
-    @FXML
-    public void shiftOn8(){
-         gererI.setStyle("-fx-background-color: #5a7589");
-         gererI.setCursor(Cursor.HAND);
-    }
-    
-    @FXML
-    public void shiftOff8(){
-         gererI.setStyle("-fx-background-color: #225066");
-    }
+  
 
     @FXML
     private void goTostud(MouseEvent event) {
             manStud.toFront();
             gererA.setStyle("-fx-background-color: #5a7589");
             AdminAccess.toBack();
+    }
+
+   @FXML
+    private void goToAdminacc(ActionEvent event) {
+    manStud.toBack();
+    AdminAccess.toFront();
     }
     
 }

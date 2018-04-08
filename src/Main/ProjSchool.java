@@ -28,9 +28,12 @@ public class ProjSchool extends Application {
         
         Scene scene = new Scene(root);
         
+        scene.getStylesheets().add(ProjSchool.class.getResource("../Css/style.css").toExternalForm());
+        
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+        
     }
 
     public static void main(String[] args) {
