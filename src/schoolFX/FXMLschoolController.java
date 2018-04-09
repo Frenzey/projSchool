@@ -88,6 +88,14 @@ public class FXMLschoolController implements Initializable {
     private Pane GererEnseig;
     @FXML
     private JFXButton prevButEnseign;
+    @FXML
+    private ToggleGroup choice;
+    @FXML
+    private Pane GererInscrip;
+    @FXML
+    private JFXButton prevButInsc;
+    @FXML
+    private JFXButton boutonInscrip;
 
     /**
      * Initializes the controller class.
@@ -119,17 +127,6 @@ public class FXMLschoolController implements Initializable {
             AdminAccess.toBack();
     }
 
-   @FXML
-    private void goToAdminacc(ActionEvent event) {
-    manStud.toBack();
-    AdminAccess.toFront();
-    }
-
-    @FXML
-    private void goToAdminaccpai(ActionEvent event) {
-    manStud.toBack();
-    AdminAccess.toFront();
-    }
 
     @FXML
     private void goToPaie(ActionEvent event) {
@@ -146,11 +143,18 @@ public class FXMLschoolController implements Initializable {
     
     }
 
-
+    
     @FXML
-    private void goToAdminaccEns(ActionEvent event) {
+    private void goBacktoAdmin(ActionEvent event) {
             manStud.toBack();
             AdminAccess.toFront();
+    }
+
+    @FXML
+    private void goToIns(ActionEvent event) {
+            manStud.toFront();
+            GererInscrip.toFront();
+            AdminAccess.toBack();
     }
     
 }
