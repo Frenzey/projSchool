@@ -96,6 +96,18 @@ public class FXMLschoolController implements Initializable {
     private JFXButton prevButInsc;
     @FXML
     private JFXButton boutonInscrip;
+    @FXML
+    private JFXButton prevButHSM;
+    @FXML
+    private JFXButton boutonHSM;
+    @FXML
+    private Pane GererHSM;
+    @FXML
+    private Pane GererAg;
+    @FXML
+    private JFXButton boutonAg;
+    @FXML
+    private JFXButton prevButAg;
 
     /**
      * Initializes the controller class.
@@ -154,6 +166,21 @@ public class FXMLschoolController implements Initializable {
     private void goToIns(ActionEvent event) {
             manStud.toFront();
             GererInscrip.toFront();
+            AdminAccess.toBack();
+    }
+
+    @FXML
+    private void goToHSM(ActionEvent event) {
+        
+            manStud.toFront();
+            GererHSM.toFront();
+            AdminAccess.toBack();
+    }
+
+    @FXML
+    private void goToAg(ActionEvent event) {
+            manStud.toFront();
+            GererAg.toFront();
             AdminAccess.toBack();
     }
     
