@@ -816,12 +816,7 @@
                                     <Label text="Liste des Agents/Individus" />
                                     <HBox prefHeight="514.0" prefWidth="695.0" spacing="30.0">
                                        <children>
-                                          <TableView prefHeight="100.0" prefWidth="361.0">
-                                            <columns>
-                                              <TableColumn prefWidth="75.0" text="C1" />
-                                              <TableColumn prefWidth="75.0" text="C2" />
-                                            </columns>
-                                          </TableView>
+                                          <JFXTreeTableView prefHeight="429.0" prefWidth="359.0" />
                                           <VBox prefHeight="488.0" prefWidth="332.0" spacing="25.0" style="-fx-background-color: #1e698c;">
                                              <children>
                                                 <JFXTextField promptText="NOM" />
@@ -884,6 +879,48 @@
                               </ImageView>
                            </graphic>
                         </JFXButton>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #20759c;">
+                     <children>
+                        <VBox layoutX="63.0" layoutY="34.0" prefHeight="664.0" prefWidth="673.0" spacing="40.0" style="-fx-background-color: #1e698c;">
+                           <children>
+                              <Label text="Groupe" />
+                              <HBox prefHeight="294.0" prefWidth="673.0" spacing="30.0">
+                                 <children>
+                                    <VBox prefHeight="100.0" prefWidth="301.0">
+                                       <children>
+                                          <Label text="Liste des Étudiants" />
+                                          <HBox prefHeight="84.0" prefWidth="145.0">
+                                             <children>
+                                                <JFXTreeTableView prefHeight="180.0" prefWidth="203.0" />
+                                                <JFXButton text="ADD Student" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="100.0" prefWidth="377.0">
+                                       <children>
+                                          <VBox prefHeight="100.0" prefWidth="276.0">
+                                             <children>
+                                                <Label text="Liste des Groupes" />
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <JFXTreeTableView />
+                                                      <JFXButton text="DELETE Groupe" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="25.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
                      </children>
                   </Pane>
                </children>
