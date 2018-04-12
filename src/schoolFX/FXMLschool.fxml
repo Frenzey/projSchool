@@ -70,7 +70,7 @@
                               <Font size="23.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Groupes" textFill="WHITE">
+                        <JFXButton fx:id="boutonGr" onAction="#goToGr" prefHeight="145.0" prefWidth="340.0" styleClass="bouton" text="Gérer Groupes" textFill="WHITE">
                            <font>
                               <Font size="23.0" />
                            </font>
@@ -146,10 +146,13 @@
                      </children></Pane>
                   <Pane fx:id="gererE" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
-                        <Label layoutX="56.0" layoutY="28.0" text="Gérer Salles">
+                        <Label layoutX="56.0" layoutY="28.0" text="Gérer Sal/Hor/Mat">
                            <font>
                               <Font name="Kollektif Bold" size="18.0" />
-                           </font></Label>
+                           </font>
+                           <padding>
+                              <Insets left="-10.0" />
+                           </padding></Label>
                      </children></Pane>
                   <Pane fx:id="gererF" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
                      <children>
@@ -165,21 +168,6 @@
                               <Font name="Kollektif Bold" size="18.0" />
                            </font></Label>
                      </children></Pane>
-                  <Pane fx:id="gererH" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
-                     <children>
-                        <Label layoutX="56.0" layoutY="28.0" text="Gérer Matieres">
-                           <font>
-                              <Font name="Kollektif Bold" size="18.0" />
-                           </font></Label>
-                     </children></Pane>
-                  <Pane fx:id="gererI" prefHeight="200.0" prefWidth="219.0" styleClass="bouton">
-                     <children>
-                        <Label layoutX="56.0" layoutY="28.0" text="Gérer Horaires">
-                           <font>
-                              <Font name="Kollektif Bold" size="18.0" />
-                           </font></Label>
-                     </children>
-                  </Pane>
                </children></VBox>
             <Pane fx:id="RightPaneContainer" layoutX="218.0" prefHeight="768.0" prefWidth="805.0">
                <children>
@@ -881,32 +869,37 @@
                         </JFXButton>
                      </children>
                   </Pane>
-                  <Pane prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #20759c;">
+                  <Pane fx:id="gererGroup" prefHeight="768.0" prefWidth="805.0" style="-fx-background-color: #20759c;">
                      <children>
-                        <VBox layoutX="63.0" layoutY="34.0" prefHeight="664.0" prefWidth="673.0" spacing="40.0" style="-fx-background-color: #1e698c;">
+                        <VBox layoutX="20.0" layoutY="34.0" prefHeight="664.0" prefWidth="764.0" spacing="40.0" style="-fx-background-color: #1e698c;">
                            <children>
                               <Label text="Groupe" />
                               <HBox prefHeight="294.0" prefWidth="673.0" spacing="30.0">
                                  <children>
-                                    <VBox prefHeight="100.0" prefWidth="301.0">
+                                    <VBox prefHeight="294.0" prefWidth="327.0">
                                        <children>
                                           <Label text="Liste des Étudiants" />
-                                          <HBox prefHeight="84.0" prefWidth="145.0">
+                                          <HBox prefHeight="240.0" prefWidth="361.0">
                                              <children>
-                                                <JFXTreeTableView prefHeight="180.0" prefWidth="203.0" />
-                                                <JFXButton text="ADD Student" />
+                                                <JFXTreeTableView prefHeight="240.0" prefWidth="252.0" />
+                                                <VBox prefHeight="240.0" prefWidth="187.0">
+                                                   <children>
+                                                      <JFXButton text="ADD Student to Group" />
+                                                      <JFXButton text="DELETE Student" />
+                                                   </children>
+                                                </VBox>
                                              </children>
                                           </HBox>
                                        </children>
                                     </VBox>
                                     <VBox prefHeight="100.0" prefWidth="377.0">
                                        <children>
-                                          <VBox prefHeight="100.0" prefWidth="276.0">
+                                          <VBox prefHeight="271.0" prefWidth="357.0">
                                              <children>
                                                 <Label text="Liste des Groupes" />
-                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                <HBox prefHeight="240.0" prefWidth="347.0">
                                                    <children>
-                                                      <JFXTreeTableView />
+                                                      <JFXTreeTableView prefHeight="240.0" prefWidth="258.0" />
                                                       <JFXButton text="DELETE Groupe" />
                                                    </children>
                                                 </HBox>
@@ -919,8 +912,59 @@
                                     <Insets left="25.0" />
                                  </padding>
                               </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Créer Groupe" />
+                                    <VBox prefHeight="37.0" prefWidth="764.0">
+                                       <children>
+                                          <HBox prefHeight="43.0" prefWidth="764.0">
+                                             <children>
+                                                <Label text="Matière:" />
+                                                <JFXComboBox />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <JFXTextField promptText="TAILLE" />
+                                    <HBox prefHeight="38.0" prefWidth="764.0">
+                                       <children>
+                                          <Label text="Enseignant" />
+                                          <JFXComboBox />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="38.0" prefWidth="764.0">
+                                       <children>
+                                          <Label text="Salle:" />
+                                          <JFXComboBox />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="38.0" prefWidth="764.0">
+                                       <children>
+                                          <Label text="Session:" />
+                                          <JFXComboBox />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="55.0" prefWidth="764.0" spacing="30.0">
+                                       <children>
+                                          <JFXButton text="GÉNÉRER" />
+                                       </children>
+                                       <padding>
+                                          <Insets left="200.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                         </VBox>
+                        <JFXButton fx:id="prevButGr" buttonType="RAISED" layoutX="15.0" layoutY="710.0" onAction="#goBacktoAdmin" prefHeight="49.0" prefWidth="49.0" styleClass="previous" text="">
+                           <graphic>
+                              <ImageView fitHeight="49.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../IMG/left-arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
                      </children>
                   </Pane>
                </children>
