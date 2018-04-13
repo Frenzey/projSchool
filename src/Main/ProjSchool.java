@@ -18,6 +18,8 @@ import javafx.stage.Stage;
  */
 public class ProjSchool extends Application {
 
+    public static Stage stage = null;
+
     /**
      * @param args the command line arguments
      * 
@@ -33,6 +35,9 @@ public class ProjSchool extends Application {
         stage.setScene(scene);
         stage.show();
         stage.setResizable(false);
+        this.stage = stage;
+        
+        MetaData.parent = root;
         
     }
 
